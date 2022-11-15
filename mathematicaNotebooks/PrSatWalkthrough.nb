@@ -1,0 +1,434 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15865,        426]
+NotebookOptionsPosition[     13759,        382]
+NotebookOutlinePosition[     14162,        398]
+CellTagsIndexPosition[     14119,        395]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"$UserBaseDirectory", "<>", "\"\</Applications\>\""}]], "Input",
+ CellChangeTimes->{{3.8672924884824133`*^9, 3.8672924884831057`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"bde7bd0e-aa35-4afc-8f6f-178f91dfb881"],
+
+Cell[BoxData["\<\"/home/rafal/.Mathematica/Applications\"\>"], "Output",
+ CellChangeTimes->{3.8672924908830757`*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"6bcba81c-1978-4e23-9f75-5a7f54038fe6"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"<<", "PrSAT`"}]], "Input",
+ CellChangeTimes->{3.867292503218039*^9},
+ CellLabel->"In[5]:=",ExpressionUUID->"dc60401e-5dff-4c45-808d-64a400c3d54a"],
+
+Cell[CellGroupData[{
+
+Cell["PrSAT", "Section",
+ CellChangeTimes->{{3.867292573272752*^9, 
+  3.867292574128838*^9}},ExpressionUUID->"99b67432-4558-4459-9f1f-\
+48e74235adb1"],
+
+Cell["\<\
+
+The PrSAT function itself takes as its main argument a set of statements \
+(equations, inequations, and/or inequalities) in the probability calculus. 
+If that set is satisfiable, then (in principle) PrSAT will return a \
+probability model which makes all the statements in the set true.  If the set \
+is not satisfiable, then (in principle) PrSAT will return the empty set {}. \
+\>", "Text",
+ CellChangeTimes->{{3.8672925362559566`*^9, 3.867292548880907*^9}, {
+  3.867292610688545*^9, 
+  3.86729261537661*^9}},ExpressionUUID->"e53bbdd8-7b76-48c6-81cc-\
+1b9b75684d41"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"M1", "=", 
+  RowBox[{"PrSAT", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Pr", "[", 
+       RowBox[{"X", "\[And]", "Y"}], "]"}], "==", 
+      RowBox[{"1", "/", "6"}]}], ",", 
+     RowBox[{
+      RowBox[{"Pr", "[", 
+       RowBox[{"X", "|", "Y"}], "]"}], "==", 
+      RowBox[{"1", "/", "4"}]}]}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.867292629818549*^9, 3.867292638617282*^9}, {
+  3.8672927452333727`*^9, 3.8672927577207823`*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"70959c59-2fa6-42d1-b4ed-dfbd64fe6eae"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"X", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        SubscriptBox["\[DoubleStruckA]", "2"], ",", 
+        SubscriptBox["\[DoubleStruckA]", "4"]}], "}"}]}], ",", 
+     RowBox[{"Y", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        SubscriptBox["\[DoubleStruckA]", "3"], ",", 
+        SubscriptBox["\[DoubleStruckA]", "4"]}], "}"}]}], ",", 
+     RowBox[{"\[CapitalOmega]", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        SubscriptBox["\[DoubleStruckA]", "1"], ",", 
+        SubscriptBox["\[DoubleStruckA]", "2"], ",", 
+        SubscriptBox["\[DoubleStruckA]", "3"], ",", 
+        SubscriptBox["\[DoubleStruckA]", "4"]}], "}"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["\[DoubleStruckA]", "1"], "\[Rule]", 
+      FractionBox["1", "3"]}], ",", 
+     RowBox[{
+      SubscriptBox["\[DoubleStruckA]", "2"], "\[Rule]", "0"}], ",", 
+     RowBox[{
+      SubscriptBox["\[DoubleStruckA]", "3"], "\[Rule]", 
+      FractionBox["1", "2"]}], ",", 
+     RowBox[{
+      SubscriptBox["\[DoubleStruckA]", "4"], "\[Rule]", 
+      FractionBox["1", "6"]}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.867292641578903*^9, 3.867292748650243*^9, 
+  3.867292915423584*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"639a9412-7e15-4996-9d00-4407e78d89e4"]
+}, Open  ]],
+
+Cell["\<\
+QUESTION: if there are multiple models, how does it choose one
+\
+\>", "Text",
+ CellChangeTimes->{{3.867292674200556*^9, 3.867292687192347*^9}, {
+  3.867292763488245*^9, 
+  3.867292763936215*^9}},ExpressionUUID->"2438641d-e90c-41b7-9158-\
+fec18364f0a8"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"M2", "=", 
+   RowBox[{"PrSAT", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Pr", "[", 
+         RowBox[{"X", "\[And]", "Y"}], "]"}], "==", 
+        RowBox[{"1", "/", "6"}]}], ",", 
+       RowBox[{
+        RowBox[{"Pr", "[", 
+         RowBox[{"X", "|", "Y"}], "]"}], "==", 
+        RowBox[{"1", "/", "4"}]}]}], "}"}], ",", " ", 
+     RowBox[{"Probabilities", " ", "->", " ", "Regular"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.867292891274193*^9, 3.867292908152689*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"caef8ce0-465f-4509-8f22-f4348dc0aeef"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"X", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         SubscriptBox["\[DoubleStruckA]", "2"], ",", 
+         SubscriptBox["\[DoubleStruckA]", "4"]}], "}"}]}], ",", 
+      RowBox[{"Y", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         SubscriptBox["\[DoubleStruckA]", "3"], ",", 
+         SubscriptBox["\[DoubleStruckA]", "4"]}], "}"}]}], ",", 
+      RowBox[{"\[CapitalOmega]", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         SubscriptBox["\[DoubleStruckA]", "1"], ",", 
+         SubscriptBox["\[DoubleStruckA]", "2"], ",", 
+         SubscriptBox["\[DoubleStruckA]", "3"], ",", 
+         SubscriptBox["\[DoubleStruckA]", "4"]}], "}"}]}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["\[DoubleStruckA]", "1"], "\[Rule]", 
+       FractionBox["332", "999"]}], ",", 
+      RowBox[{
+       SubscriptBox["\[DoubleStruckA]", "2"], "\[Rule]", 
+       FractionBox["1", "999"]}], ",", 
+      RowBox[{
+       SubscriptBox["\[DoubleStruckA]", "3"], "\[Rule]", 
+       FractionBox["1", "2"]}], ",", 
+      RowBox[{
+       SubscriptBox["\[DoubleStruckA]", "4"], "\[Rule]", 
+       FractionBox["1", "6"]}]}], "}"}]}], "}"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.8672929803916883`*^9, 
+  3.867292980991869*^9}},ExpressionUUID->"94558b62-6d8b-4e15-95fa-\
+cfa1ee6179c0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Truth table", "Section",
+ CellChangeTimes->{{3.867292992647449*^9, 
+  3.86729299731947*^9}},ExpressionUUID->"8fd3195a-7305-40c9-aa9b-\
+86821bd2cc39"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"TruthTable", "[", "M1", "]"}], "  ", "%", "why", " ", 
+    RowBox[{"doesn", "'"}], "t", " ", "this", " ", "work"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"STT", "[", "M1", "]"}], ";", " ", 
+    RowBox[{"STT", "[", "M2", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.8672930016183043`*^9, 3.8672930189994392`*^9}, {
+  3.867293049575683*^9, 3.8672930627594213`*^9}, {3.867293134495182*^9, 
+  3.867293138287496*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"fa877eba-79ef-4f98-bf0e-23017be84094"],
+
+Cell[BoxData[
+ RowBox[{"t", " ", "this", " ", "why", " ", "work", " ", 
+  TagBox[GridBox[{
+     {"X", "Y", "\<\"var\"\>", "\<\"Pr\"\>"},
+     {"T", "T", 
+      SubscriptBox["\[DoubleStruckA]", "4"], 
+      FractionBox["1", "6"]},
+     {"T", "F", 
+      SubscriptBox["\[DoubleStruckA]", "2"], "0"},
+     {"F", "T", 
+      SubscriptBox["\[DoubleStruckA]", "3"], 
+      FractionBox["1", "2"]},
+     {"F", "F", 
+      SubscriptBox["\[DoubleStruckA]", "1"], 
+      FractionBox["1", "3"]}
+    },
+    AutoDelete->False,
+    GridBoxDividers->{
+     "Columns" -> {False, {True}, False}, "Rows" -> {False, {True}, False}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Grid"], " ", 
+  TagBox[GridBox[{
+     {"\<\"\\!\\(\\*FormBox[RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"X\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{SubscriptBox[\\\"\[DoubleStruckA]\\\", \\\"2\\\"], \\\",\\\", \
+SubscriptBox[\\\"\[DoubleStruckA]\\\", \\\"4\\\"]}], \\\"}\\\"}]}], \
+\\\",\\\", RowBox[{\\\"Y\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{SubscriptBox[\\\"\[DoubleStruckA]\\\", \\\"3\\\"], \\\",\\\", \
+SubscriptBox[\\\"\[DoubleStruckA]\\\", \\\"4\\\"]}], \\\"}\\\"}]}], \
+\\\",\\\", RowBox[{\\\"\[CapitalOmega]\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{SubscriptBox[\\\"\[DoubleStruckA]\\\", \\\"1\\\"], \
+\\\",\\\", SubscriptBox[\\\"\[DoubleStruckA]\\\", \\\"2\\\"], \\\",\\\", \
+SubscriptBox[\\\"\[DoubleStruckA]\\\", \\\"3\\\"], \\\",\\\", SubscriptBox[\\\
+\"\[DoubleStruckA]\\\", \\\"4\\\"]}], \\\"}\\\"}]}]}], \\\"}\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{SubscriptBox[\\\"\
+\[DoubleStruckA]\\\", \\\"1\\\"], \\\"\[Rule]\\\", FractionBox[\\\"1\\\", \
+\\\"3\\\"]}], \\\",\\\", RowBox[{SubscriptBox[\\\"\[DoubleStruckA]\\\", \\\"2\
+\\\"], \\\"\[Rule]\\\", \\\"0\\\"}], \\\",\\\", RowBox[{SubscriptBox[\\\"\
+\[DoubleStruckA]\\\", \\\"3\\\"], \\\"\[Rule]\\\", FractionBox[\\\"1\\\", \
+\\\"2\\\"]}], \\\",\\\", RowBox[{SubscriptBox[\\\"\[DoubleStruckA]\\\", \\\"4\
+\\\"], \\\"\[Rule]\\\", FractionBox[\\\"1\\\", \\\"6\\\"]}]}], \\\"}\\\"}]}], \
+\\\"}\\\"}], TraditionalForm]\\)\"\>"},
+     {
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"X", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Boole", "[", 
+              SubscriptBox["\[DoubleStruckA]", "2"], "]"}], ",", 
+             RowBox[{"Boole", "[", 
+              SubscriptBox["\[DoubleStruckA]", "4"], "]"}]}], "}"}]}], ",", 
+          RowBox[{"Y", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Boole", "[", 
+              SubscriptBox["\[DoubleStruckA]", "3"], "]"}], ",", 
+             RowBox[{"Boole", "[", 
+              SubscriptBox["\[DoubleStruckA]", "4"], "]"}]}], "}"}]}], ",", 
+          RowBox[{"\[CapitalOmega]", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Boole", "[", 
+              SubscriptBox["\[DoubleStruckA]", "T"], "]"}], ",", 
+             RowBox[{"Boole", "[", 
+              SubscriptBox["\[DoubleStruckA]", "2"], "]"}], ",", 
+             RowBox[{"Boole", "[", 
+              SubscriptBox["\[DoubleStruckA]", "3"], "]"}], ",", 
+             RowBox[{"Boole", "[", 
+              SubscriptBox["\[DoubleStruckA]", "4"], "]"}]}], "}"}]}]}], 
+         "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           SubscriptBox["\[DoubleStruckA]", "T"], "\[Rule]", 
+           RowBox[{"Boole", "[", 
+            FractionBox["1", "3"], "]"}]}], ",", 
+          RowBox[{
+           SubscriptBox["\[DoubleStruckA]", "2"], "\[Rule]", 
+           RowBox[{"Boole", "[", "F", "]"}]}], ",", 
+          RowBox[{
+           SubscriptBox["\[DoubleStruckA]", "3"], "\[Rule]", 
+           RowBox[{"Boole", "[", 
+            FractionBox["1", "2"], "]"}]}], ",", 
+          RowBox[{
+           SubscriptBox["\[DoubleStruckA]", "4"], "\[Rule]", 
+           RowBox[{"Boole", "[", 
+            FractionBox["1", "6"], "]"}]}]}], "}"}]}], "}"}]}
+    },
+    AutoDelete->False,
+    FrameStyle->GrayLevel[0.5],
+    GridBoxBackground->{"Columns" -> {{None}}, "Rows" -> {
+        GrayLevel[0.7], {
+         GrayLevel[1]}}},
+    GridBoxDividers->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+    GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{0.7}}, "Rows" -> {{0.7}}}],
+   "Grid"], " ", 
+  SuperscriptBox["doesn", "\[Prime]",
+   MultilineFunction->None]}]], "Output",
+ CellChangeTimes->{{3.867293012759615*^9, 3.8672930196183853`*^9}, 
+   3.867293054746297*^9, 3.867293140311236*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"a33e13d5-8476-4dbe-bf89-9101fdd6a033"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"X", "Y", "\<\"var\"\>", "\<\"Pr\"\>"},
+    {"T", "T", 
+     SubscriptBox["\[DoubleStruckA]", "4"], 
+     FractionBox["1", "6"]},
+    {"T", "F", 
+     SubscriptBox["\[DoubleStruckA]", "2"], 
+     FractionBox["1", "999"]},
+    {"F", "T", 
+     SubscriptBox["\[DoubleStruckA]", "3"], 
+     FractionBox["1", "2"]},
+    {"F", "F", 
+     SubscriptBox["\[DoubleStruckA]", "1"], 
+     FractionBox["332", "999"]}
+   },
+   AutoDelete->False,
+   GridBoxDividers->{
+    "Columns" -> {False, {True}, False}, "Rows" -> {False, {True}, False}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.867293012759615*^9, 3.8672930196183853`*^9}, 
+   3.867293054746297*^9, 3.867293140315201*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"cf0bb34a-883d-4c65-8887-a9543db165bf"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Evaluate probability
+\
+\>", "Section",
+ CellChangeTimes->{{3.8672932050466957`*^9, 
+  3.8672932105266933`*^9}},ExpressionUUID->"6b75f905-0462-4aba-8a36-\
+91ed3a347d8f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"EvaluateProbability", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Pr", "[", 
+       RowBox[{"X", "\[And]", "Y"}], "]"}], ",", 
+      RowBox[{"Pr", "[", 
+       RowBox[{"X", "|", "Y"}], "]"}]}], "}"}], ",", "M2"}], "]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.867293213001813*^9, 3.8672932164149113`*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"bc66c145-2c5b-4f5e-afe2-ccfcaea0aecf"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["1", "6"], ",", 
+   FractionBox["1", "4"]}], "}"}]], "Output",
+ CellChangeTimes->{3.867293216987607*^9},
+ CellLabel->"Out[16]=",ExpressionUUID->"9d25237b-9539-47bc-9eec-03249c210983"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{606., 659.25},
+WindowMargins->{{Automatic, 202.5}, {44.25, Automatic}},
+FrontEndVersion->"13.0 for Linux x86 (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"edc85872-cdf4-4afe-b96f-f7123f201d9b"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 235, 3, 29, "Input",ExpressionUUID->"bde7bd0e-aa35-4afc-8f6f-178f91dfb881"],
+Cell[818, 27, 194, 2, 33, "Output",ExpressionUUID->"6bcba81c-1978-4e23-9f75-5a7f54038fe6"]
+}, Open  ]],
+Cell[1027, 32, 170, 3, 29, "Input",ExpressionUUID->"dc60401e-5dff-4c45-808d-64a400c3d54a"],
+Cell[CellGroupData[{
+Cell[1222, 39, 150, 3, 68, "Section",ExpressionUUID->"99b67432-4558-4459-9f1f-48e74235adb1"],
+Cell[1375, 44, 578, 11, 150, "Text",ExpressionUUID->"e53bbdd8-7b76-48c6-81cc-1b9b75684d41"],
+Cell[CellGroupData[{
+Cell[1978, 59, 563, 15, 30, "Input",ExpressionUUID->"70959c59-2fa6-42d1-b4ed-dfbd64fe6eae"],
+Cell[2544, 76, 1374, 37, 76, "Output",ExpressionUUID->"639a9412-7e15-4996-9d00-4407e78d89e4"]
+}, Open  ]],
+Cell[3933, 116, 262, 7, 58, "Text",ExpressionUUID->"2438641d-e90c-41b7-9158-fec18364f0a8"],
+Cell[4198, 125, 657, 18, 71, "Input",ExpressionUUID->"caef8ce0-465f-4509-8f22-f4348dc0aeef"],
+Cell[4858, 145, 1461, 40, 117, InheritFromParent,ExpressionUUID->"94558b62-6d8b-4e15-95fa-cfa1ee6179c0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6356, 190, 155, 3, 68, "Section",ExpressionUUID->"8fd3195a-7305-40c9-aa9b-86821bd2cc39"],
+Cell[CellGroupData[{
+Cell[6536, 197, 588, 13, 71, "Input",ExpressionUUID->"fa877eba-79ef-4f98-bf0e-23017be84094"],
+Cell[7127, 212, 4788, 105, 148, "Output",ExpressionUUID->"a33e13d5-8476-4dbe-bf89-9101fdd6a033"],
+Cell[11918, 319, 860, 23, 135, "Output",ExpressionUUID->"cf0bb34a-883d-4c65-8887-a9543db165bf"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12827, 348, 178, 6, 107, "Section",ExpressionUUID->"6b75f905-0462-4aba-8a36-91ed3a347d8f"],
+Cell[CellGroupData[{
+Cell[13030, 358, 460, 12, 51, "Input",ExpressionUUID->"bc66c145-2c5b-4f5e-afe2-ccfcaea0aecf"],
+Cell[13493, 372, 238, 6, 48, "Output",ExpressionUUID->"9d25237b-9539-47bc-9eec-03249c210983"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
